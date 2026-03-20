@@ -271,3 +271,9 @@ button {
 @keyframes blink {
   50% { opacity: 0; }
 }
+
+@media (prefers-color-scheme: light) {
+  header li a {
+    color: white;
+  }
+}
