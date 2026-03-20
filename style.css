@@ -1,0 +1,273 @@
+/* Cabeçalho */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: #000a10;
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+ul {
+  width: 98vw;
+  display: flex;
+  gap: 14px;
+  list-style-type: none;
+  justify-content: center;
+  padding-left: 0;
+}
+
+li {
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.15s all ease;
+  padding: 4px;
+}
+
+li:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+a {
+  background-color: transparent;
+}
+
+#mode {
+  cursor: pointer;
+}
+
+#mode:hover {
+  scale: 1.1;
+}
+
+@media (max-width: 768px) {
+  header {
+    display: none;
+  }
+}
+/* Fim cabeçalho */
+
+/* Corpo */
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+button {
+  border-radius: 4px;
+}
+
+.sessao-apresentacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 0 20px;
+  max-width: 800px;
+}
+
+.apresentacao {
+  line-height: 1.5;
+}
+
+.apresentacao .detalhes .profissao {
+  margin-bottom: 8px;
+}
+
+.apresentacao .detalhes p {
+  width: 80%;
+  line-height: 1;
+}
+
+.apresentacao span {
+  font-size: 16px;
+}
+
+.apresentacao .mais-info {
+  padding-top: 12px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.apresentacao .mais-info button {
+  background: var(--primary-color);
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.25s all ease;
+}
+
+.apresentacao .mais-info button:hover {
+  transform: scale(1.2);
+}
+
+.apresentacao .mais-info .botao {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.apresentacao .mais-info .botao-icone {
+  transition: 0.3s all ease;
+}
+
+.apresentacao .mais-info .botao-icone:hover {
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+}
+
+.apresentacao .mais-info .botao-icone i {
+  font-size: 28px;
+}
+
+.imagem img {
+  border-radius: 48px;
+  border: 0.5px solid var(--primary-color);
+}
+
+.divisor {
+  width: 60%;
+  height: 1px;
+  background: var(--primary-color);
+  margin: 28px auto;
+}
+
+.sobre {
+  max-width: 800px;
+  padding: 0 20px;
+  margin: auto;
+}
+
+.sobre p {
+  text-align: justify;
+}
+
+.sobre h2 {
+  text-align: center;
+}
+
+.tecnologias {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  padding: 0 20px;
+  margin: auto;
+}
+
+.tecnologias h2 {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.tecnologias .cards {
+  display: flex;
+  gap: 20px;
+}
+
+.tecnologias .cards .card {
+  border: 1px solid var(--primary-color);
+  padding: 10px;
+  border-radius: 8px;
+  width: 160px;
+}
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.icons .icon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  min-width: 80px;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.icons .icon-card i {
+  font-size: 38px;
+}
+
+.icons .icon-card span {
+  font-size: 14px;
+  /* background-color: rgba(0, 0, 0, 0.164); */
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0 4px;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  opacity: 0;
+  transition: 0.2s;
+  pointer-events: none;
+}
+
+.icon-card:hover span {
+  opacity: 1;
+  bottom: -30px; /* leve animação opcional */
+}
+
+.icons .icon-card .show-span {
+  display: inline;
+}
+
+.icons .icon-card span:hover {
+  display: flex;
+}
+
+.icons div:hover {
+  transform: translateY(-8px) scale(1.15);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .sessao-apresentacao .apresentacao .detalhes .none,
+  .sessao-apresentacao .apresentacao .detalhes .profissao,
+  .apresentacao .detalhes p {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+
+  .imagem img {
+    display: none;
+  }
+}
+
+#type-text::after {
+  content: "|";
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
