@@ -350,6 +350,7 @@ button {
 
 .contatos .form-contato form .campo label, .contatos .form-contato form .campo input {
   cursor: pointer;
+  width: 100%;
 }
 
 .contatos .form-contato form .campo input, .contatos .form-contato .campo textarea {
