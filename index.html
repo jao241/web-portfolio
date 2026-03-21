@@ -66,7 +66,7 @@
 </script>
 
 <body>
-  <header class="fade-onheader">
+  <header>
     <nav>
       <ul>
         <li><a href="#sessao-inicio">Início</a></li>
@@ -78,11 +78,13 @@
     </nav>
   </header>
   <main>
-    <section id="sessao-inicio" class="sessao-apresentacao fade-in">
+    <span id="sessao-inicio"></span>
+    <section class="sessao-apresentacao fade-in">
       <div class="apresentacao">
         <div class="detalhes">
           <h1 class="none">Olá, eu sou João Vitor 👋</h1>
-          <span id="type-text" class="profissao"></span>
+          <span class="profissao">Desenvolvedor Full Stack</span>
+          <!-- <span id="type-text" class="profissao"></span> -->
           <p class="descricao">
             Construo aplicações web modernas, rápidas e escaláveis,
             transformando ideias em soluções digitais eficientes.
@@ -102,30 +104,58 @@
         </div>
       </div>
       <div class="imagem">
-        <img src="src/assets/imagem-portfolio.jpeg" alt="Foto pessoal" width="260" />
+        <img src="src/assets/imagem-portfolio.jpeg" alt="Foto pessoal" width="340" />
       </div>
     </section>
+    <span id="sessao-sobre"></span>
     <div class="divisor fade-in"></div>
-    <section id="sessao-sobre" class="sobre fade-in">
+    <section class="sobre fade-in">
       <h2>Um pouco da minha história</h2>
-      <p>
-        Sou formado no Instituto Federal de Educação, Ciência e Tecnologia da
-        Bahia (IFBA) e atualmente estou cursando uma pós-graduação Lato Sensu
-        em Desenvolvimento Web.
-      </p>
-      <p>
-        Atuo no mercado de tecnologia desde 2021, onde iniciei minha carreira
-        como desenvolvedor na prefeitura da minha cidade. Ao longo desse
-        período trabalhei com diversas tecnologias para desenvolver aplicações
-        web
-        <b>robustas</b> e <b>confiáveis</b> que contribuiram para a melhoria
-        de processos com foco na criação de API's e interfaces. Durante esse
-        tempo tive a oportunidade de aprender e me desenvolver em diversas
-        <a href="#sessao-tecnologia">linguagens, frameworks e boas práticas</a>.
-      </p>
+      <div class="conteudo">
+        <p>
+          Sou formado no Instituto Federal de Educação, Ciência e Tecnologia da
+          Bahia (IFBA) e atualmente estou cursando uma pós-graduação Lato Sensu
+          em Desenvolvimento Web.
+        </p>
+        <p>
+          Atuo no mercado de tecnologia desde 2021, onde iniciei minha carreira
+          como desenvolvedor na prefeitura da minha cidade. Ao longo desse
+          período trabalhei com diversas tecnologias para desenvolver aplicações
+          web
+          <b>robustas</b> e <b>confiáveis</b> que contribuiram para a melhoria
+          de processos com foco na criação de API's e interfaces. Durante esse
+          tempo tive a oportunidade de aprender e me desenvolver em diversas
+          <a href="#sessao-tecnologia">linguagens, frameworks e boas práticas</a>.
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ex obcaecati sint modi quaerat quae eius,
+          corrupti tempore laudantium nostrum, eaque recusandae minus animi architecto autem dolor, nobis repellat cum!
+          Numquam, laboriosam eaque reiciendis, asperiores maiores assumenda maxime, recusandae laborum est perspiciatis
+          eligendi illo quis iste ullam inventore! Consequatur deleniti, nam eveniet distinctio alias consequuntur
+          maiores
+          quisquam tempora perspiciatis necessitatibus!
+          Eos, sint laboriosam id vero esse, alias eius, autem ratione soluta ipsum placeat repellendus dolores in
+          voluptatem earum quidem at? Praesentium cum nesciunt eligendi magnam illum ex, pariatur voluptatem! Eos!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ex obcaecati sint modi quaerat quae eius,
+          corrupti tempore laudantium nostrum, eaque recusandae minus animi architecto autem dolor, nobis repellat cum!
+          Numquam, laboriosam eaque reiciendis, asperiores maiores assumenda maxime, recusandae laborum est perspiciatis
+          eligendi illo quis iste ullam inventore! Consequatur deleniti, nam eveniet distinctio alias consequuntur
+          maiores
+          quisquam tempora perspiciatis necessitatibus!
+          Eos, sint laboriosam id vero esse, alias eius, autem ratione soluta ipsum placeat repellendus dolores in
+          voluptatem earum quidem at? Praesentium cum nesciunt eligendi magnam illum ex, pariatur voluptatem! Eos!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ex obcaecati sint modi quaerat quae eius,
+          corrupti tempore laudantium nostrum, eaque recusandae minus animi architecto autem dolor, nobis repellat cum!
+          Numquam, laboriosam eaque reiciendis, asperiores maiores assumenda maxime, recusandae laborum est perspiciatis
+          eligendi illo quis iste ullam inventore! Consequatur deleniti, nam eveniet distinctio alias consequuntur
+          maiores
+          quisquam tempora perspiciatis necessitatibus!
+          Eos, sint laboriosam id vero esse, alias eius, autem ratione soluta ipsum placeat repellendus dolores in
+          voluptatem earum quidem at? Praesentium cum nesciunt eligendi magnam illum ex, pariatur voluptatem! Eos!</p>
+        </p>
+      </div>
     </section>
+    <span id="sessao-tecnologia"></span>
     <div class="divisor fade-in"></div>
-    <section id="sessao-tecnologia" class="tecnologias fade-in">
+    <section class="tecnologias fade-in">
       <h2>Tecnologias e ferramentas</h2>
       <div class="icons">
         <!-- Front -->
@@ -214,8 +244,9 @@
         </div>
       </div>
     </section>
+    <span id="sessao-projetos"></span>
     <div class="divisor"></div>
-    <section id="sessao-projetos" class="projetos">
+    <section class="projetos">
       <div class="projetos-destaque">
         <h2>Projetos em destaque</h2>
         <div class="projeto-cards">
@@ -229,11 +260,13 @@
               <p class="projeto-tag">item</p>
               <p class="projeto-tag">item</p>
             </div>
-            <p class="projeto-descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem inventore iusto recusandae, aspernatur itaque fugiat mollitia commodi nulla, quisquam esse, voluptate odit eligendi est tempora distinctio fugit porro. Assumenda.</p>
+            <p class="projeto-descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem
+              inventore iusto recusandae, aspernatur itaque fugiat mollitia commodi nulla, quisquam esse, voluptate odit
+              eligendi est tempora distinctio fugit porro. Assumenda.</p>
             <button class="botao-saiba-mais">saiba mais</button>
           </div>
           <div class="projeto-card">
-            <h3 class="projeto-titulo">Projeto 01</h3>
+            <h3 class="projeto-titulo">Projeto 02</h3>
             <img class="projeto-imagem" src="src/assets/OIP.webp" alt="imagem do projeto">
             <div class="projeto-tecnologias">
               <p class="projeto-tag">item</p>
@@ -242,11 +275,13 @@
               <p class="projeto-tag">item</p>
               <p class="projeto-tag">item</p>
             </div>
-            <p class="projeto-descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem inventore iusto recusandae, aspernatur itaque fugiat mollitia commodi nulla, quisquam esse, voluptate odit eligendi est tempora distinctio fugit porro. Assumenda. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem, modi debitis necessitatibus animi dicta nesciunt nemo, fugit, quae ut natus deleniti fuga reiciendis vitae excepturi repellat ipsam consectetur accusantium et?</p>
+            <p class="projeto-descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem
+              inventore iusto recusandae, aspernatur itaque fugiat mollitia commodi nulla, quisquam esse, voluptate odit
+              eligendi est tempora distinctio fugit porro. Assumenda.</p>
             <button class="botao-saiba-mais">saiba mais</button>
           </div>
           <div class="projeto-card">
-            <h3 class="projeto-titulo">Projeto 01</h3>
+            <h3 class="projeto-titulo">Projeto 03</h3>
             <img class="projeto-imagem" src="src/assets/OIP.webp" alt="imagem do projeto">
             <div class="projeto-tecnologias">
               <p class="projeto-tag">item</p>
@@ -255,17 +290,65 @@
               <p class="projeto-tag">item</p>
               <p class="projeto-tag">item</p>
             </div>
-            <p class="projeto-descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem inventore iusto recusandae, aspernatur itaque fugiat mollitia commodi nulla, quisquam esse, voluptate odit eligendi est tempora distinctio fugit porro. Assumenda.</p>
+            <p class="projeto-descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem
+              inventore iusto recusandae, aspernatur itaque fugiat mollitia commodi nulla, quisquam esse, voluptate odit
+              eligendi est tempora distinctio fugit porro. Assumenda.</p>
+            <button class="botao-saiba-mais">saiba mais</button>
+          </div>
+          <div class="projeto-card">
+            <h3 class="projeto-titulo">Projeto 04</h3>
+            <img class="projeto-imagem" src="src/assets/OIP.webp" alt="imagem do projeto">
+            <div class="projeto-tecnologias">
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+            </div>
+            <p class="projeto-descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem
+              inventore iusto recusandae, aspernatur itaque fugiat mollitia commodi nulla, quisquam esse, voluptate odit
+              eligendi est tempora distinctio fugit porro. Assumenda.</p>
+            <button class="botao-saiba-mais">saiba mais</button>
+          </div>
+          <div class="projeto-card">
+            <h3 class="projeto-titulo">Projeto 05</h3>
+            <img class="projeto-imagem" src="src/assets/OIP.webp" alt="imagem do projeto">
+            <div class="projeto-tecnologias">
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+            </div>
+            <p class="projeto-descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem
+              inventore iusto recusandae, aspernatur itaque fugiat mollitia commodi nulla, quisquam esse, voluptate odit
+              eligendi est tempora distinctio fugit porro. Assumenda.</p>
+            <button class="botao-saiba-mais">saiba mais</button>
+          </div>
+          <div class="projeto-card">
+            <h3 class="projeto-titulo">Projeto 06</h3>
+            <img class="projeto-imagem" src="src/assets/OIP.webp" alt="imagem do projeto">
+            <div class="projeto-tecnologias">
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+            </div>
+            <p class="projeto-descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem
+              inventore iusto recusandae, aspernatur itaque fugiat mollitia commodi nulla, quisquam esse, voluptate odit
+              eligendi est tempora distinctio fugit porro. Assumenda.</p>
             <button class="botao-saiba-mais">saiba mais</button>
           </div>
         </div>
       </div>
     </section>
+    <span id="sessao-contato"></span>
     <div class="divisor"></div>
-    <section id="sessao-contato" class="contatos">
+    <section class="contatos">
       <div class="form-contato">
         <h2>Contato</h2>
-        <form action="mail.php" method="post">
+        <form>
           <div class="campo">
             <label for="nome">Nome</label>
             <input type="text" name="nome" id="nome" placeholder="informe o seu nome">
@@ -276,7 +359,8 @@
           </div>
           <div class="campo">
             <label for="telefone">Telefone</label>
-            <input type="tel" name="telefone" id="telefone" placeholder="informe o seu telefone" onkeyup="formatPhoneField()">
+            <!-- <input type="tel" name="telefone" id="telefone" placeholder="informe o seu telefone" onkeyup="formatPhoneField()"> -->
+            <input type="tel" name="telefone" id="telefone" placeholder="informe o seu telefone">
           </div>
           <div class="campo">
             <label for="data-nascimento">Data de nascimento</label>
@@ -284,10 +368,13 @@
           </div>
           <div class="campo">
             <label for="mensagem">Mensagem</label>
-            <textarea name="mensagem" id="mensagem" placeholder="deixe sua mensagem aqui..."></textarea>
+            <textarea name="mensagem" id="mensagem" placeholder="deixe sua mensagem aqui..." rows="8"></textarea>
           </div>
           <div class="campo">
-            <button class="botao-formulario" onclick="sendForm()">Enviar</button>
+            <!-- <button class="botao-formulario" onclick="sendForm()">Enviar</button> -->
+            <div class="opcoes">
+              <button class="botao-formulario">Enviar</button>
+            </div>
           </div>
         </form>
     </section>

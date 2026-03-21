@@ -61,15 +61,16 @@ button {
 
 .sessao-apresentacao {
   display: flex;
-  align-items: center;
   justify-content: center;
   margin-top: 40px;
   padding: 0 20px;
-  max-width: 800px;
+  height: 740px;
+  padding-top: 120px;
 }
 
 .apresentacao {
   line-height: 1.5;
+  padding-top: 80px;
 }
 
 .apresentacao .detalhes .profissao {
@@ -100,7 +101,7 @@ button {
   outline: none;
   border: none;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 16px;
   padding: 10px;
   cursor: pointer;
   transition: 0.25s all ease;
@@ -148,6 +149,7 @@ button {
 
 .sobre {
   max-width: 800px;
+  height: 740px;
   padding: 0 20px;
   margin: auto;
 }
@@ -250,7 +252,7 @@ button {
   align-items: center;
   justify-content: center;
   padding: 0 20px;
-  max-width: 800px;
+  max-width: 1200px;
 }
 
 .projetos .projetos-destaque h2 {
@@ -262,6 +264,7 @@ button {
   display: flex;
   gap: 12px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .projeto-cards .projeto-card {
@@ -311,7 +314,7 @@ button {
   margin-bottom: 12px;
   overflow-y: scroll;
   scrollbar-width: none;
-  max-height: 300px;
+  max-height: 180px;
 }
 
 .contatos {
@@ -325,7 +328,7 @@ button {
   background-color: var(--background-card-color);
   padding: 24px;
   border-radius: 6px;
-  width: 420px;
+  width: 540px;
 }
 
 .contatos .form-contato h2 {
@@ -342,6 +345,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: start;
+  gap: 8px;
 }
 
 .contatos .form-contato form .campo label, .contatos .form-contato form .campo input {
@@ -350,8 +354,20 @@ button {
 
 .contatos .form-contato form .campo input, .contatos .form-contato .campo textarea {
   border: none;
-  padding: 8px;
+  padding: 12px;
   border-radius: 6px;
+  box-shadow: 1px 2px 4px var(--vt-c-text-light-2);
+  font-size: 16px;
+  outline: none;
+}
+
+.contatos .form-contato form .campo label {
+  font-size: 18px;
+}
+
+.contatos .form-contato form .campo .opcoes {
+  display: flex;
+  justify-content: center;
 }
 
 /* Fim corpo */
@@ -367,7 +383,18 @@ button {
 
 @media (max-width: 768px) {
   header {
-    display: none;
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
+  }
+
+  header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  header nav ul li {
+    font-size: 12px;
   }
 
   .sessao-apresentacao .apresentacao .detalhes .none,
@@ -378,8 +405,32 @@ button {
     display: block;
   }
 
+  .sessao-apresentacao {
+    padding-top: 0;
+    max-height: 500px;
+  }
+
+  .sobre {
+    max-height: 500px;
+
+  }
+
+  .sobre .conteudo {
+    max-height: 400px;
+    overflow: scroll;
+  }
+
+  .sessao-apresentacao .apresentacao .detalhes .nome {
+    font-size: 32px;
+  }
+
   .imagem img {
     display: none;
+  }
+
+  .projeto-cards {
+    max-height: 1000px;
+    overflow: scroll;
   }
 }
 
@@ -398,5 +449,13 @@ button {
 @media (prefers-color-scheme: light) {
   header li a {
     color: var(--vt-c-white);
+  }
+
+  .projeto-cards .projeto-card {
+    border: 1px solid var(--primary-color);
+  }
+
+  .contatos .form-contato {
+    border: 1px solid var(--primary-color); 
   }
 }
