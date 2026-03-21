@@ -1,231 +1,297 @@
 <!doctype html>
 <html lang="">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="src/assets/code-solid-full.svg" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="main.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfólio</title>
-  </head>
-  <script>
-    const texts = [
-      "Desenvolvedor Full Stack",
-      "PHP • Laravel • Vue • TypeScript • Docker",
-    ];
 
-    let displayedText = "";
-    let count = 0;
-    let index = 0;
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="src/assets/code-solid-full.svg" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="main.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio</title>
+</head>
+<script>
+  const texts = [
+    "Desenvolvedor Full Stack",
+    "PHP • Laravel • Vue • TypeScript • Docker",
+  ];
 
-    window.addEventListener("DOMContentLoaded", () => {
-      const element = document.getElementById("type-text");
+  let displayedText = "";
+  let count = 0;
+  let index = 0;
 
-      function type() {
-        if (count === texts.length) count = 0;
+  window.addEventListener("DOMContentLoaded", () => {
+    const element = document.getElementById("type-text");
 
-        const currentText = texts[count];
-        displayedText = currentText.slice(0, ++index);
+    function type() {
+      if (count === texts.length) count = 0;
 
-        element.textContent = displayedText;
+      const currentText = texts[count];
+      displayedText = currentText.slice(0, ++index);
 
-        if (displayedText.length === currentText.length) {
-          count++;
-          index = 0;
-          setTimeout(type, 1500);
-        } else {
-          setTimeout(type, 60);
-        }
+      element.textContent = displayedText;
+
+      if (displayedText.length === currentText.length) {
+        count++;
+        index = 0;
+        setTimeout(type, 1500);
+      } else {
+        setTimeout(type, 60);
       }
+    }
 
-      type();
-    });
-  </script>
-  <body>
-    <header class="fade-onheader">
-      <nav>
-        <ul>
-          <li><a href="#sessao-inicio">Início</a></li>
-          <li><a href="#sessao-sobre">Sobre</a></li>
-          <li><a href="#sessao-tecnologia">Tecnologias</a></li>
-          <li><a href="#sessao-projetos">Projetos</a></li>
-          <li><a href="#sessao-contato">Contato</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section id="sessao-inicio" class="sessao-apresentacao fade-in">
-        <div class="apresentacao">
-          <div class="detalhes">
-            <h1 class="none">Olá, eu sou João Vitor 👋</h1>
-            <span id="type-text" class="profissao"></span>
-            <p class="descricao">
-              Construo aplicações web modernas, rápidas e escaláveis,
-              transformando ideias em soluções digitais eficientes.
-            </p>
-            <div class="mais-info">
-              <button class="botao">Ver projetos</button>
-              <a
-                class="botao botao-icone"
-                href="https://github.com/jao241"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i class="devicon-github-plain colored" title="GitHub"></i>
-                <p>GitHub</p>
-              </a>
-              <a
-                class="botao botao-icone"
-                href="https://www.linkedin.com/in/joao-vitor-5856b7204/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i class="devicon-linkedin-plain colored" title="Linkedin"></i>
-                <p>Linkedin</p>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="imagem">
-          <img
-            src="src/assets/imagem-portfolio.jpeg"
-            alt="Foto pessoal"
-            width="260"
-          />
-        </div>
-      </section>
-      <div class="divisor fade-in"></div>
-      <section id="sessao-sobre" class="sobre fade-in">
-        <h2>Um pouco da minha história</h2>
-        <p>
-          Sou formado no Instituto Federal de Educação, Ciência e Tecnologia da
-          Bahia (IFBA) e atualmente estou cursando uma pós-graduação Lato Sensu
-          em Desenvolvimento Web.
-        </p>
-        <p>
-          Atuo no mercado de tecnologia desde 2021, onde iniciei minha carreira
-          como desenvolvedor na prefeitura da minha cidade. Ao longo desse
-          período trabalhei com diversas tecnologias para desenvolver aplicações
-          web
-          <b>robustas</b> e <b>confiáveis</b> que contribuiram para a melhoria
-          de processos com foco na criação de API's e interfaces. Durante esse
-          tempo tive a oportunidade de aprender e me desenvolver em diversas
-          <a href="#sessao-tecnologia">linguagens, frameworks e boas práticas</a
-          >.
-        </p>
-      </section>
-      <div class="divisor fade-in"></div>
-      <section id="sessao-tecnologia" class="tecnologias fade-in">
-        <h2>Tecnologias e ferramentas</h2>
-        <div class="icons">
-          <!-- Front -->
-          <div class="icon-card">
-            <i class="devicon-vuejs-plain colored" title="Vue"></i>
-            <span>Vue</span>
-          </div>
+    type();
+  });
 
-          <div class="icon-card">
-            <i class="devicon-angularjs-plain colored" title="Angular"></i>
-            <span>Angular</span>
-          </div>
+  function formatPhoneField() {
+    phoneElement = document.getElementById('telefone');
 
-          <div class="icon-card">
-            <i class="devicon-javascript-plain colored" title="JavaScript"></i>
-            <span>JavaScript</span>
-          </div>
+    const digits = phoneElement.value.replace(/\D/g, '');
 
-          <div class="icon-card">
-            <i class="devicon-typescript-plain colored" title="TypeScript"></i>
-            <span>TypeScript</span>
-          </div>
+    const ddd = digits.slice(0, 2);
+    const firstPart = digits.length === 11 ? digits.slice(2, 7) : digits.slice(2, 6);
+    const secondPart = digits.length === 11 ? digits.slice(7) : digits.slice(6);
 
-          <div class="icon-card">
-            <i class="devicon-html5-plain colored" title="HTML5"></i>
-            <span>HTML5</span>
-          </div>
+    phoneElement.value = `(${ddd}) ${firstPart}-${secondPart}`;
+  }
 
-          <div class="icon-card">
-            <i class="devicon-css3-plain colored" title="CSS3"></i>
-            <span>CSS3</span>
-          </div>
+  function sendForm() {
+    alert('Email enviado!');
+  }
+</script>
 
-          <!-- Back -->
-          <div class="icon-card">
-            <i class="devicon-php-plain colored" title="PHP"></i>
-            <span>PHP</span>
+<body>
+  <header class="fade-onheader">
+    <nav>
+      <ul>
+        <li><a href="#sessao-inicio">Início</a></li>
+        <li><a href="#sessao-sobre">Sobre</a></li>
+        <li><a href="#sessao-tecnologia">Tecnologias</a></li>
+        <li><a href="#sessao-projetos">Projetos</a></li>
+        <li><a href="#sessao-contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="sessao-inicio" class="sessao-apresentacao fade-in">
+      <div class="apresentacao">
+        <div class="detalhes">
+          <h1 class="none">Olá, eu sou João Vitor 👋</h1>
+          <span id="type-text" class="profissao"></span>
+          <p class="descricao">
+            Construo aplicações web modernas, rápidas e escaláveis,
+            transformando ideias em soluções digitais eficientes.
+          </p>
+          <div class="mais-info">
+            <button class="botao">Ver projetos</button>
+            <a class="botao botao-icone" href="https://github.com/jao241" target="_blank" rel="noopener noreferrer">
+              <i class="devicon-github-plain colored" title="GitHub"></i>
+              <p>GitHub</p>
+            </a>
+            <a class="botao botao-icone" href="https://www.linkedin.com/in/joao-vitor-5856b7204/" target="_blank"
+              rel="noopener noreferrer">
+              <i class="devicon-linkedin-plain colored" title="Linkedin"></i>
+              <p>Linkedin</p>
+            </a>
           </div>
-
-          <div class="icon-card">
-            <i class="devicon-laravel-plain colored" title="Laravel"></i>
-            <span>Laravel</span>
-          </div>
-
-          <div class="icon-card">
-            <i class="devicon-nodejs-plain colored" title="Node.js"></i>
-            <span>Node.js</span>
-          </div>
-
-          <div class="icon-card">
-            <i class="devicon-nestjs-plain colored" title="NestJS"></i>
-            <span>NestJS</span>
-          </div>
-
-          <!-- Banco -->
-          <div class="icon-card">
-            <i class="devicon-mysql-plain colored" title="MySQL"></i>
-            <span>MySQL</span>
-          </div>
-
-          <div class="icon-card">
-            <i class="devicon-postgresql-plain colored" title="PostgreSQL"></i>
-            <span>PostgreSQL</span>
-          </div>
-
-          <div class="icon-card">
-            <i class="devicon-mongodb-plain colored" title="MongoDB"></i>
-            <span>MongoDB</span>
-          </div>
-
-          <!-- Outros -->
-          <div class="icon-card">
-            <i class="devicon-git-plain colored" title="Git"></i>
-            <span>Git</span>
-          </div>
-
-          <div class="icon-card">
-            <i class="devicon-jira-plain colored" title="Jira"></i>
-            <span>Jira</span>
-          </div>
-
-          <!-- Infra -->
-          <div class="icon-card">
-            <i class="devicon-docker-plain colored" title="Docker"></i>
-            <span>Docker</span>
-          </div>
-        </div>
-      </section>
-      <div class="divisor"></div>
-      <!-- <section class="sessao-projetos">
-      <div class="projetos-destaque">
-        <h2>Projetos em destaque</h2>
-        <div>
-          <p>Nome do projeto</p>
-          <p>Principais tecnologias</p>
-          <button>saiba mais</button>
         </div>
       </div>
-    </section> -->
-      <!-- <section class="contatos"></section> -->
-    </main>
-  </body>
+      <div class="imagem">
+        <img src="src/assets/imagem-portfolio.jpeg" alt="Foto pessoal" width="260" />
+      </div>
+    </section>
+    <div class="divisor fade-in"></div>
+    <section id="sessao-sobre" class="sobre fade-in">
+      <h2>Um pouco da minha história</h2>
+      <p>
+        Sou formado no Instituto Federal de Educação, Ciência e Tecnologia da
+        Bahia (IFBA) e atualmente estou cursando uma pós-graduação Lato Sensu
+        em Desenvolvimento Web.
+      </p>
+      <p>
+        Atuo no mercado de tecnologia desde 2021, onde iniciei minha carreira
+        como desenvolvedor na prefeitura da minha cidade. Ao longo desse
+        período trabalhei com diversas tecnologias para desenvolver aplicações
+        web
+        <b>robustas</b> e <b>confiáveis</b> que contribuiram para a melhoria
+        de processos com foco na criação de API's e interfaces. Durante esse
+        tempo tive a oportunidade de aprender e me desenvolver em diversas
+        <a href="#sessao-tecnologia">linguagens, frameworks e boas práticas</a>.
+      </p>
+    </section>
+    <div class="divisor fade-in"></div>
+    <section id="sessao-tecnologia" class="tecnologias fade-in">
+      <h2>Tecnologias e ferramentas</h2>
+      <div class="icons">
+        <!-- Front -->
+        <div class="icon-card">
+          <i class="devicon-vuejs-plain colored" title="Vue"></i>
+          <span>Vue</span>
+        </div>
+
+        <div class="icon-card">
+          <i class="devicon-angularjs-plain colored" title="Angular"></i>
+          <span>Angular</span>
+        </div>
+
+        <div class="icon-card">
+          <i class="devicon-javascript-plain colored" title="JavaScript"></i>
+          <span>JavaScript</span>
+        </div>
+
+        <div class="icon-card">
+          <i class="devicon-typescript-plain colored" title="TypeScript"></i>
+          <span>TypeScript</span>
+        </div>
+
+        <div class="icon-card">
+          <i class="devicon-html5-plain colored" title="HTML5"></i>
+          <span>HTML5</span>
+        </div>
+
+        <div class="icon-card">
+          <i class="devicon-css3-plain colored" title="CSS3"></i>
+          <span>CSS3</span>
+        </div>
+
+        <!-- Back -->
+        <div class="icon-card">
+          <i class="devicon-php-plain colored" title="PHP"></i>
+          <span>PHP</span>
+        </div>
+
+        <div class="icon-card">
+          <i class="devicon-laravel-plain colored" title="Laravel"></i>
+          <span>Laravel</span>
+        </div>
+
+        <div class="icon-card">
+          <i class="devicon-nodejs-plain colored" title="Node.js"></i>
+          <span>Node.js</span>
+        </div>
+
+        <div class="icon-card">
+          <i class="devicon-nestjs-plain colored" title="NestJS"></i>
+          <span>NestJS</span>
+        </div>
+
+        <!-- Banco -->
+        <div class="icon-card">
+          <i class="devicon-mysql-plain colored" title="MySQL"></i>
+          <span>MySQL</span>
+        </div>
+
+        <div class="icon-card">
+          <i class="devicon-postgresql-plain colored" title="PostgreSQL"></i>
+          <span>PostgreSQL</span>
+        </div>
+
+        <div class="icon-card">
+          <i class="devicon-mongodb-plain colored" title="MongoDB"></i>
+          <span>MongoDB</span>
+        </div>
+
+        <!-- Outros -->
+        <div class="icon-card">
+          <i class="devicon-git-plain colored" title="Git"></i>
+          <span>Git</span>
+        </div>
+
+        <div class="icon-card">
+          <i class="devicon-jira-plain colored" title="Jira"></i>
+          <span>Jira</span>
+        </div>
+
+        <!-- Infra -->
+        <div class="icon-card">
+          <i class="devicon-docker-plain colored" title="Docker"></i>
+          <span>Docker</span>
+        </div>
+      </div>
+    </section>
+    <div class="divisor"></div>
+    <section id="sessao-projetos" class="projetos">
+      <div class="projetos-destaque">
+        <h2>Projetos em destaque</h2>
+        <div class="projeto-cards">
+          <div class="projeto-card">
+            <h3 class="projeto-titulo">Projeto 01</h3>
+            <img class="projeto-imagem" src="src/assets/OIP.webp" alt="imagem do projeto">
+            <div class="projeto-tecnologias">
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+            </div>
+            <p class="projeto-descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem inventore iusto recusandae, aspernatur itaque fugiat mollitia commodi nulla, quisquam esse, voluptate odit eligendi est tempora distinctio fugit porro. Assumenda.</p>
+            <button class="botao-saiba-mais">saiba mais</button>
+          </div>
+          <div class="projeto-card">
+            <h3 class="projeto-titulo">Projeto 01</h3>
+            <img class="projeto-imagem" src="src/assets/OIP.webp" alt="imagem do projeto">
+            <div class="projeto-tecnologias">
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+            </div>
+            <p class="projeto-descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem inventore iusto recusandae, aspernatur itaque fugiat mollitia commodi nulla, quisquam esse, voluptate odit eligendi est tempora distinctio fugit porro. Assumenda. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem, modi debitis necessitatibus animi dicta nesciunt nemo, fugit, quae ut natus deleniti fuga reiciendis vitae excepturi repellat ipsam consectetur accusantium et?</p>
+            <button class="botao-saiba-mais">saiba mais</button>
+          </div>
+          <div class="projeto-card">
+            <h3 class="projeto-titulo">Projeto 01</h3>
+            <img class="projeto-imagem" src="src/assets/OIP.webp" alt="imagem do projeto">
+            <div class="projeto-tecnologias">
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+              <p class="projeto-tag">item</p>
+            </div>
+            <p class="projeto-descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem inventore iusto recusandae, aspernatur itaque fugiat mollitia commodi nulla, quisquam esse, voluptate odit eligendi est tempora distinctio fugit porro. Assumenda.</p>
+            <button class="botao-saiba-mais">saiba mais</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="divisor"></div>
+    <section id="sessao-contato" class="contatos">
+      <div class="form-contato">
+        <h2>Contato</h2>
+        <form action="mail.php" method="post">
+          <div class="campo">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" placeholder="informe o seu nome">
+          </div>
+          <div class="campo">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" placeholder="informe o seu email">
+          </div>
+          <div class="campo">
+            <label for="telefone">Telefone</label>
+            <input type="tel" name="telefone" id="telefone" placeholder="informe o seu telefone" onkeyup="formatPhoneField()">
+          </div>
+          <div class="campo">
+            <label for="data-nascimento">Data de nascimento</label>
+            <input type="date" name="data-nascimento" id="data-nascimento">
+          </div>
+          <div class="campo">
+            <label for="mensagem">Mensagem</label>
+            <textarea name="mensagem" id="mensagem" placeholder="deixe sua mensagem aqui..."></textarea>
+          </div>
+          <div class="campo">
+            <button class="botao-formulario" onclick="sendForm()">Enviar</button>
+          </div>
+        </form>
+    </section>
+  </main>
+</body>
+
 </html>
