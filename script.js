@@ -43,8 +43,89 @@ function formatPhoneField() {
   phoneElement.value = `(${ddd}) ${firstPart}-${secondPart}`;
 }
 
-function sendForm() {
-  alert("Email enviado!");
+
+// Função para validar email
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Função para validar telefone
+function isValidPhone(phone) {
+  const digitsOnly = phone.replace(/\D/g, "");
+  return digitsOnly.length >= 10 && digitsOnly.length <= 11;
+}
+
+// Função para validar o formulário
+function validateForm(formData) {
+  const errors = [];
+  if (!formData.nome || formData.nome.trim().length === 0) {
+    errors.push("Nome é obrigatório");
+  }
+  if (!formData.email || !isValidEmail(formData.email)) {
+    errors.push("Email inválido");
+  }
+  if (formData.telefone && !isValidPhone(formData.telefone)) {
+    errors.push("Telefone inválido");
+  }
+  if (!formData.mensagem || formData.mensagem.trim().length === 0) {
+    errors.push("Mensagem é obrigatória");
+  }
+  return errors;
+}
+
+
+// ====== EMAILJS INTEGRAÇÃO ======
+// 1. Adicione o script do EmailJS no <head> do seu index.html:
+// <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+// 2. Crie uma conta em https://www.emailjs.com/
+// 3. Crie um serviço (ex: Gmail) e um template
+// 4. Pegue seu PUBLIC_KEY, SERVICE_ID e TEMPLATE_ID
+
+// Inicialize o EmailJS (substitua pelo seu PUBLIC_KEY)
+if (window.emailjs) {
+  emailjs.init('KFZZd2cTNkWQBBsQ6');
+}
+
+async function sendForm(event) {
+  if (event) event.preventDefault();
+  const form = document.querySelector(".form-contato form");
+  const submitButton = form.querySelector(".botao-formulario");
+  const originalButtonText = "Enviar";
+
+  const formData = {
+    nome: document.getElementById("nome").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    telefone: document.getElementById("telefone").value.trim(),
+    // data_nascimento: document.getElementById("data-nascimento").value,
+    mensagem: document.getElementById("mensagem").value.trim(),
+  };
+
+  const errors = validateForm(formData);
+  if (errors.length > 0) {
+    alert("Erros no formulário:\n" + errors.join("\n"));
+    return;
+  }
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Enviando...";
+
+  console.log(formData);
+  
+  try {
+    // Substitua pelos seus IDs do EmailJS
+    const SERVICE_ID = 'service_xt5ijnb';
+    const TEMPLATE_ID = 'template_44t8tqu';
+
+    await emailjs.send(SERVICE_ID, TEMPLATE_ID, formData);
+    alert("Email enviado com sucesso! Entrarei em contato em breve.");
+    form.reset();
+  } catch (error) {
+    alert("Erro ao enviar formulário. Tente novamente mais tarde.");
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = originalButtonText;
+  }
 }
 
 const root = document.documentElement;
@@ -79,10 +160,6 @@ function formatPhoneField() {
   const secondPart = digits.length === 11 ? digits.slice(7) : digits.slice(6);
 
   phoneElement.value = `(${ddd}) ${firstPart}-${secondPart}`;
-}
-
-function sendForm() {
-  alert("Email enviado!");
 }
 
 function showTypeAnimated() {

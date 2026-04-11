@@ -15,6 +15,7 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfólio</title>
@@ -58,7 +59,7 @@
             <div class="mais-info">
               <a
                 class="botao botao-icone"
-                href="./src/portfolio/curriculo.pdf"
+                href="https://drive.google.com/file/d/1d4OwFwLtFzGB5X5Mry00_g2U6rRAjDpP/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="baixar portfólio"
@@ -241,141 +242,112 @@
       </section>
       <span id="sessao-projetos"></span>
       <div class="divisor"></div>
-      <section class="projetos">
-        <div class="projetos-destaque">
-          <h2>Projetos em destaque</h2>
-          <div class="projeto-cards">
-            <div class="projeto-card">
-              <h3 class="projeto-titulo">Projeto 01</h3>
-              <img
-                class="projeto-imagem"
-                src="src/assets/OIP.webp"
-                alt="imagem do projeto"
-              />
-              <div class="projeto-tecnologias">
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-              </div>
-              <p class="projeto-descricao">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Possimus quidem inventore iusto recusandae, aspernatur itaque
-                fugiat mollitia commodi nulla, quisquam esse, voluptate odit
-                eligendi est tempora distinctio fugit porro. Assumenda.
+      <section id="sessao-projetos" class="projetos">
+        <h2>Projetos</h2>
+
+        <div class="projeto-item">
+          <!-- LADO ESQUERDO -->
+          <div class="projeto-info">
+            <h3>Ingressy</h3>
+
+            <div class="projeto-texto">
+              <p>
+                O Ingressy é uma plataforma desenvolvida para simplificar a
+                gestão e a comercialização de ingressos para eventos, eliminando
+                processos manuais, descentralizados e pouco confiáveis. A
+                solução permite que organizadores realizem vendas de forma
+                digital, segura e automatizada, otimizando o controle e a
+                distribuição dos ingressos.
               </p>
-              <button class="botao-saiba-mais">saiba mais</button>
+              <p>
+                Além disso, o Ingressy oferece aos usuários uma experiência
+                prática e confiável, desde a compra até a validação no acesso ao
+                evento, garantindo mais agilidade, segurança e organização tanto
+                para quem vende quanto para quem participa.
+              </p>
             </div>
-            <div class="projeto-card">
-              <h3 class="projeto-titulo">Projeto 02</h3>
-              <img
-                class="projeto-imagem"
-                src="src/assets/OIP.webp"
-                alt="imagem do projeto"
-              />
-              <div class="projeto-tecnologias">
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-              </div>
-              <p class="projeto-descricao">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Possimus quidem inventore iusto recusandae, aspernatur itaque
-                fugiat mollitia commodi nulla, quisquam esse, voluptate odit
-                eligendi est tempora distinctio fugit porro. Assumenda.
-              </p>
-              <button class="botao-saiba-mais">saiba mais</button>
+
+            <div class="projeto-tecnologias">
+              <span>Em desenvolvimento</span>
+              <span>Vue</span>
+              <span>Tailwind</span>
+              <span>Laravel</span>
+              <span>PostgreSQL</span>
+              <span>Nginx</span>
+              <span>Sanctum</span>
             </div>
-            <div class="projeto-card">
-              <h3 class="projeto-titulo">Projeto 03</h3>
-              <img
-                class="projeto-imagem"
-                src="src/assets/OIP.webp"
-                alt="imagem do projeto"
-              />
-              <div class="projeto-tecnologias">
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-              </div>
-              <p class="projeto-descricao">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Possimus quidem inventore iusto recusandae, aspernatur itaque
-                fugiat mollitia commodi nulla, quisquam esse, voluptate odit
-                eligendi est tempora distinctio fugit porro. Assumenda.
-              </p>
-              <button class="botao-saiba-mais">saiba mais</button>
+
+            <div class="contato-botoes">
+              <a
+                class="botao botao-icone"
+                href="https://github.com/jao241/ingressy-api"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="devicon-github-plain" title="GitHub"></i>
+              </a>
+              <!-- <a
+                class="botao botao-icone"
+                href="https://www.linkedin.com/in/joao-vitor-5856b7204/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="./src/assets/readme-icon.svg" alt="icone readme">
+              </a> -->
             </div>
-            <div class="projeto-card">
-              <h3 class="projeto-titulo">Projeto 04</h3>
-              <img
-                class="projeto-imagem"
-                src="src/assets/OIP.webp"
-                alt="imagem do projeto"
-              />
-              <div class="projeto-tecnologias">
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-              </div>
-              <p class="projeto-descricao">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Possimus quidem inventore iusto recusandae, aspernatur itaque
-                fugiat mollitia commodi nulla, quisquam esse, voluptate odit
-                eligendi est tempora distinctio fugit porro. Assumenda.
-              </p>
-              <button class="botao-saiba-mais">saiba mais</button>
+          </div>
+
+          <!-- LADO DIREITO (CARROSSEL) -->
+          <div class="projeto-carrossel">
+            <div class="carrossel">
+              <img src="src/assets/OIP.webp" alt="screenshot 1" />
+              <img src="src/assets/OIP.webp" alt="screenshot 2" />
+              <img src="src/assets/OIP.webp" alt="screenshot 3" />
             </div>
-            <div class="projeto-card">
-              <h3 class="projeto-titulo">Projeto 05</h3>
-              <img
-                class="projeto-imagem"
-                src="src/assets/OIP.webp"
-                alt="imagem do projeto"
-              />
-              <div class="projeto-tecnologias">
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-              </div>
-              <p class="projeto-descricao">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Possimus quidem inventore iusto recusandae, aspernatur itaque
-                fugiat mollitia commodi nulla, quisquam esse, voluptate odit
-                eligendi est tempora distinctio fugit porro. Assumenda.
+          </div>
+        </div>
+        <div class="projeto-item">
+          <!-- LADO ESQUERDO -->
+          <div class="projeto-info">
+            <h3>Web Portfólio</h3>
+
+            <div class="projeto-texto">
+              <p>
+                Este é meu portfólio pessoal, desenvolvido com o objetivo de
+                apresentar minhas habilidades como Desenvolvedor Full Stack,
+                além de destacar tecnologias e projetos que utilizo no dia a
+                dia.
               </p>
-              <button class="botao-saiba-mais">saiba mais</button>
+              <p>
+                O projeto funciona como uma vitrine profissional, com foco em
+                performance, responsividade e experiência do usuário,
+                proporcionando uma navegação fluida e um visual moderno para
+                visitantes em diferentes dispositivos.
+              </p>
             </div>
-            <div class="projeto-card">
-              <h3 class="projeto-titulo">Projeto 06</h3>
-              <img
-                class="projeto-imagem"
-                src="src/assets/OIP.webp"
-                alt="imagem do projeto"
-              />
-              <div class="projeto-tecnologias">
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-                <p class="projeto-tag">item</p>
-              </div>
-              <p class="projeto-descricao">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Possimus quidem inventore iusto recusandae, aspernatur itaque
-                fugiat mollitia commodi nulla, quisquam esse, voluptate odit
-                eligendi est tempora distinctio fugit porro. Assumenda.
-              </p>
-              <button class="botao-saiba-mais">saiba mais</button>
+
+            <div class="projeto-tecnologias">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+            </div>
+
+            <div class="contato-botoes">
+              <a
+                class="botao botao-icone"
+                href="https://github.com/jao241/web-portfolio"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="devicon-github-plain" title="GitHub"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- LADO DIREITO (CARROSSEL) -->
+          <div class="projeto-carrossel">
+            <div class="carrossel">
+              <img src="src/imagens-projetos/portfolio/hero-desktop.png" alt="screenshot 1" />
             </div>
           </div>
         </div>
@@ -419,7 +391,7 @@
           <div class="form-contato">
             <h2>Contato</h2>
 
-            <form>
+            <form onsubmit="sendForm(event)">
               <div class="campo">
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" placeholder="Informe seu nome" />
@@ -444,10 +416,10 @@
                 />
               </div>
 
-              <div class="campo">
+              <!-- <div class="campo">
                 <label for="data-nascimento">Data de nascimento</label>
                 <input type="date" id="data-nascimento" />
-              </div>
+              </div> -->
 
               <div class="campo">
                 <label for="mensagem">Mensagem</label>

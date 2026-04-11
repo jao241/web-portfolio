@@ -15,10 +15,12 @@
   --hover-color: rgba(0, 0, 0, 0.08);
   --background-card-color: var(--vt-c-white);
 
-  --primary-font: 'Inter';
+  --primary-font: "Inter";
 
   --button-primary: #22c55e;
   --button-secondary: #16a34a;
+
+  color-scheme: light dark;
 }
 
 /* 🌙 DARK MODE MANUAL (prioridade máxima) */
@@ -225,5 +227,8 @@ header,
 section,
 .card,
 .form-contato {
-  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease;
 }
