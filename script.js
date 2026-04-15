@@ -32,16 +32,34 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 function formatPhoneField() {
-  phoneElement = document.getElementById("telefone");
+  const phoneElement = document.getElementById("telefone");
 
-  const digits = phoneElement.value.replace(/\D/g, "");
+  let digits = phoneElement.value.replace(/\D/g, "");
 
-  const ddd = digits.slice(0, 2);
-  const firstPart =
-    digits.length === 11 ? digits.slice(2, 7) : digits.slice(2, 6);
-  const secondPart = digits.length === 11 ? digits.slice(7) : digits.slice(6);
+  digits = digits.slice(0, 11);
 
-  phoneElement.value = `(${ddd}) ${firstPart}-${secondPart}`;
+  let formatted = "";
+
+  if (digits.length > 0) {
+    formatted = `(${digits.slice(0, 2)}`;
+  }
+
+  if (digits.length >= 3) {
+    formatted += `) `;
+  }
+
+  if (digits.length >= 7) {
+    if (digits.length === 11) {
+      formatted += `${digits.slice(2, 7)}-${digits.slice(7)}`;
+    } 
+    else {
+      formatted += `${digits.slice(2, 6)}-${digits.slice(6)}`;
+    }
+  } else if (digits.length > 2) {
+    formatted += digits.slice(2);
+  }
+
+  phoneElement.value = formatted;
 }
 
 function isValidEmail(email) {
@@ -70,9 +88,7 @@ function validateForm(formData) {
     errors.email = "Informe um e-mail válido";
   }
 
-  const telefonePattern = /^\(\d{2}\)\s\d{5}-\d{4}$/;
-
-  if (!formData.telefone || !telefonePattern.test(formData.telefone)) {
+  if (!formData.telefone || formData.telefone.length < 10 || formData.telefone.length > 11) {
     errors.telefone = "Formato: (99) 99999-9999";
   }
 
@@ -101,7 +117,7 @@ async function sendForm(event) {
   const formData = {
     nome: document.getElementById("nome").value.trim(),
     email: document.getElementById("email").value.trim(),
-    telefone: document.getElementById("telefone").value.trim(),
+    telefone: document.getElementById("telefone").value.replace(/\D/g, ""),
     mensagem: document.getElementById("mensagem").value.trim(),
   };
 
@@ -175,19 +191,6 @@ function changeTheme() {
     html.dataset.theme = "light";
     botao.setAttribute("src", "./src/assets/dark-mode-icon.svg");
   }
-}
-
-function formatPhoneField() {
-  phoneElement = document.getElementById("telefone");
-
-  const digits = phoneElement.value.replace(/\D/g, "");
-
-  const ddd = digits.slice(0, 2);
-  const firstPart =
-    digits.length === 11 ? digits.slice(2, 7) : digits.slice(2, 6);
-  const secondPart = digits.length === 11 ? digits.slice(7) : digits.slice(6);
-
-  phoneElement.value = `(${ddd}) ${firstPart}-${secondPart}`;
 }
 
 function showTypeAnimated() {
