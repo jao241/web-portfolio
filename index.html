@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="">
+<html lang="" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="src/assets/code-solid-full.svg" />
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="main.css" />
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfólio</title>
   </head>
@@ -29,15 +29,13 @@
           <li><a href="#sessao-tecnologia">Tecnologias</a></li>
           <li><a href="#sessao-projetos">Projetos</a></li>
           <li><a href="#sessao-contato">Contato</a></li>
-          <li class="theme-dark">
-            <a onclick="setDarkMode()">
-              <img src="./src/assets/dark-mode-icon.svg" alt="modo escuro" />
-            </a>
-          </li>
-
-          <li class="theme-light">
-            <a onclick="setLightMode()">
-              <img src="./src/assets/light-mode-icon.svg" alt="modo claro" />
+          <li>
+            <a onclick="changeTheme()">
+              <img
+                src="./src/assets/dark-mode-icon.svg"
+                alt="modo claro/escuro"
+                class="botao-tema"
+              />
             </a>
           </li>
         </ul>
@@ -347,7 +345,10 @@
           <!-- LADO DIREITO (CARROSSEL) -->
           <div class="projeto-carrossel">
             <div class="carrossel">
-              <img src="src/imagens-projetos/portfolio/hero-desktop.png" alt="screenshot 1" />
+              <img
+                src="src/imagens-projetos/portfolio/hero-desktop.png"
+                alt="screenshot 1"
+              />
             </div>
           </div>
         </div>
@@ -390,11 +391,17 @@
           <!-- LADO DIREITO -->
           <div class="form-contato">
             <h2>Contato</h2>
-
-            <form onsubmit="sendForm(event)">
+            <form onsubmit="sendForm(event)" novalidate>
               <div class="campo">
                 <label for="nome">Nome</label>
-                <input type="text" id="nome" placeholder="Informe seu nome" />
+                <input
+                  type="text"
+                  id="nome"
+                  placeholder="Informe seu nome"
+                  required
+                  minlength="3"
+                />
+                <span class="erro" id="erro-nome"></span>
               </div>
 
               <div class="campo">
@@ -403,7 +410,9 @@
                   type="email"
                   id="email"
                   placeholder="Informe seu email"
+                  required
                 />
+                <span class="erro" id="erro-email"></span>
               </div>
 
               <div class="campo">
@@ -411,15 +420,15 @@
                 <input
                   type="tel"
                   id="telefone"
-                  placeholder="Informe seu telefone"
+                  placeholder="(99) 99999-9999"
+                  required
+                  min="0"
+                  max="15"
+                  pattern="^\(\d{2}\)\s\d{5}-\d{4}$"
                   onkeypress="formatPhoneField()"
                 />
+                <span class="erro" id="erro-telefone"></span>
               </div>
-
-              <!-- <div class="campo">
-                <label for="data-nascimento">Data de nascimento</label>
-                <input type="date" id="data-nascimento" />
-              </div> -->
 
               <div class="campo">
                 <label for="mensagem">Mensagem</label>
@@ -427,7 +436,24 @@
                   id="mensagem"
                   placeholder="Deixe sua mensagem aqui..."
                   rows="6"
+                  required
+                  minlength="10"
                 ></textarea>
+                <span class="erro" id="erro-mensagem"></span>
+              </div>
+              <div class="campo">
+                <label>Capturar foto</label>
+
+                <video id="camera" autoplay playsinline></video>
+                <canvas id="canvas" style="display: none"></canvas>
+
+                <button type="button" class="botao-captura" id="btn-capturar">
+                  Tirar foto
+                </button>
+
+                <img id="preview" />
+
+                <span class="erro"></span>
               </div>
 
               <div class="campo">
