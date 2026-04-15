@@ -6,7 +6,6 @@
   --vt-c-text-light-1: #2c3e50;
   --vt-c-text-dark-1: #ffffff;
 
-  /* 🌞 LIGHT (default) */
   --color-background: var(--vt-c-white-soft);
   --color-text: var(--vt-c-text-light-1);
   --color-nav-text: var(--vt-c-text-light-1);
@@ -23,8 +22,7 @@
   color-scheme: light dark;
 }
 
-/* 🌙 DARK MODE MANUAL (prioridade máxima) */
-:root.dark {
+html[data-theme="dark"] {
   --color-background: var(--vt-c-black);
   --color-text: #e5e7eb;
   --color-nav-text: #e5e7eb;
@@ -36,19 +34,6 @@
   --button-secondary: #15803d;
 }
 
-/* 🌙 DARK MODE AUTOMÁTICO (somente se NÃO houver .dark) */
-@media (prefers-color-scheme: dark) {
-  :root:not(.dark) {
-    --color-background: var(--vt-c-black);
-    --color-text: #e5e7eb;
-    --color-nav-text: #e5e7eb;
-
-    --background-card-color: rgba(255, 255, 255, 0.05);
-    --hover-color: rgba(255, 255, 255, 0.08);
-  }
-}
-
-/* RESET */
 *,
 *::before,
 *::after {
@@ -56,7 +41,10 @@
   margin: 0;
 }
 
-/* BASE */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
   color: var(--color-text);
@@ -67,7 +55,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* APP */
 #app {
   display: flex;
   flex-direction: column;
@@ -75,7 +62,11 @@ body {
   width: 100%;
 }
 
-/* TIPOGRAFIA */
+section {
+  padding: 40px 20px;
+  width: 90%;
+}
+
 h1 {
   font-size: 44px;
   font-weight: 800;
@@ -100,19 +91,11 @@ p {
   color: var(--color-text);
 }
 
-/* LINKS */
 a {
   text-decoration: none;
   color: var(--color-text);
 }
 
-/* SECTIONS */
-section {
-  padding: 40px 20px;
-  width: 90%;
-}
-
-/* NAVBAR */
 header {
   position: sticky;
   top: 0;
@@ -147,7 +130,6 @@ header li a {
   color: var(--color-nav-text);
 }
 
-/* BOTÕES */
 .botao,
 .botao-saiba-mais,
 .botao-formulario {
@@ -157,7 +139,6 @@ header li a {
   font-size: 16px;
   padding: 10px 14px;
   transition: 0.3s ease;
-
   background: linear-gradient(
     135deg,
     var(--button-primary),
@@ -172,7 +153,6 @@ header li a {
   filter: brightness(1.1);
 }
 
-/* CARDS */
 .icon-card,
 .projeto-card,
 .form-contato {
@@ -180,7 +160,6 @@ header li a {
   color: var(--color-text);
 }
 
-/* ANIMAÇÕES */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -194,31 +173,23 @@ header li a {
   }
 }
 
-/* SCROLL SUAVE */
-html {
-  scroll-behavior: smooth;
-}
-
-/* THEME TOGGLE ICONS */
 .theme-light {
   display: none;
 }
 
-/* Dark mode */
-:root.dark .theme-dark {
+:root[data-theme="dark"] .theme-dark {
   display: none;
 }
 
-:root.dark .theme-light {
+:root[data-theme="dark"] .theme-light {
   display: block;
 }
 
-/* Light mode */
-:root:not(.dark) .theme-dark {
+:root[data-theme="light"] .theme-dark {
   display: block;
 }
 
-:root:not(.dark) .theme-light {
+:root[data-theme="light"] .theme-light {
   display: none;
 }
 
