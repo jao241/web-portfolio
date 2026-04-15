@@ -6,8 +6,9 @@ const texts = [
 let displayedText = "";
 let count = 0;
 let index = 0;
+const html = document.documentElement;
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", function () {
   const element = document.getElementById("type-text");
 
   function type() {
@@ -43,52 +44,56 @@ function formatPhoneField() {
   phoneElement.value = `(${ddd}) ${firstPart}-${secondPart}`;
 }
 
-
-// Função para validar email
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
 
-// Função para validar telefone
 function isValidPhone(phone) {
   const digitsOnly = phone.replace(/\D/g, "");
   return digitsOnly.length >= 10 && digitsOnly.length <= 11;
 }
 
-// Função para validar o formulário
 function validateForm(formData) {
-  const errors = [];
-  if (!formData.nome || formData.nome.trim().length === 0) {
-    errors.push("Nome é obrigatório");
+  const errors = {};
+
+  if (
+    !formData.nome ||
+    formData.nome.trim().length < 3 ||
+    /\d/.test(formData.nome)
+  ) {
+    errors.nome =
+      "Nome deve ter pelo menos 3 caracteres e não pode conter números";
   }
+
   if (!formData.email || !isValidEmail(formData.email)) {
-    errors.push("Email inválido");
+    errors.email = "Informe um e-mail válido";
   }
-  if (formData.telefone && !isValidPhone(formData.telefone)) {
-    errors.push("Telefone inválido");
+
+  const telefonePattern = /^\(\d{2}\)\s\d{5}-\d{4}$/;
+
+  if (!formData.telefone || !telefonePattern.test(formData.telefone)) {
+    errors.telefone = "Formato: (99) 99999-9999";
   }
-  if (!formData.mensagem || formData.mensagem.trim().length === 0) {
-    errors.push("Mensagem é obrigatória");
+
+  if (!formData.mensagem || formData.mensagem.trim().length < 10) {
+    errors.mensagem = "Mensagem deve ter no mínimo 10 caracteres";
   }
+
   return errors;
 }
 
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
-// ====== EMAILJS INTEGRAÇÃO ======
-// 1. Adicione o script do EmailJS no <head> do seu index.html:
-// <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-// 2. Crie uma conta em https://www.emailjs.com/
-// 3. Crie um serviço (ex: Gmail) e um template
-// 4. Pegue seu PUBLIC_KEY, SERVICE_ID e TEMPLATE_ID
-
-// Inicialize o EmailJS (substitua pelo seu PUBLIC_KEY)
 if (window.emailjs) {
-  emailjs.init('KFZZd2cTNkWQBBsQ6');
+  emailjs.init("KFZZd2cTNkWQBBsQ6");
 }
 
 async function sendForm(event) {
   if (event) event.preventDefault();
+
   const form = document.querySelector(".form-contato form");
   const submitButton = form.querySelector(".botao-formulario");
   const originalButtonText = "Enviar";
@@ -97,31 +102,53 @@ async function sendForm(event) {
     nome: document.getElementById("nome").value.trim(),
     email: document.getElementById("email").value.trim(),
     telefone: document.getElementById("telefone").value.trim(),
-    // data_nascimento: document.getElementById("data-nascimento").value,
     mensagem: document.getElementById("mensagem").value.trim(),
   };
 
   const errors = validateForm(formData);
-  if (errors.length > 0) {
-    alert("Erros no formulário:\n" + errors.join("\n"));
+
+  document.querySelectorAll(".erro").forEach((e) => (e.innerHTML = ""));
+  document.querySelectorAll("input, textarea").forEach((i) => {
+    i.classList.remove("input-erro", "input-ok");
+  });
+
+  if (Object.keys(errors).length > 0) {
+    Object.keys(errors).forEach((field) => {
+      const input = document.getElementById(field);
+      const erro = input.nextElementSibling;
+
+      if (input) input.classList.add("input-erro");
+      if (erro) {
+        erro.style.display = "block";
+        erro.innerHTML = errors[field];
+      }
+    });
+
     return;
   }
+
+  document.querySelectorAll("input, textarea").forEach((i) => {
+    i.classList.add("input-ok");
+  });
 
   submitButton.disabled = true;
   submitButton.textContent = "Enviando...";
 
-  console.log(formData);
-  
   try {
-    // Substitua pelos seus IDs do EmailJS
-    const SERVICE_ID = 'service_xt5ijnb';
-    const TEMPLATE_ID = 'template_44t8tqu';
+    const SERVICE_ID = "service_xt5ijnb";
+    const TEMPLATE_ID = "template_44t8tqu";
 
     await emailjs.send(SERVICE_ID, TEMPLATE_ID, formData);
-    alert("Email enviado com sucesso! Entrarei em contato em breve.");
+
+    alert("Email enviado com sucesso! 🚀");
     form.reset();
+
+    document.querySelectorAll("input, textarea").forEach((i) => {
+      i.classList.remove("input-ok");
+    });
   } catch (error) {
-    alert("Erro ao enviar formulário. Tente novamente mais tarde.");
+    alert("Erro ao enviar formulário. Tente novamente.");
+    console.error(error);
   } finally {
     submitButton.disabled = false;
     submitButton.textContent = originalButtonText;
@@ -131,23 +158,24 @@ async function sendForm(event) {
 const root = document.documentElement;
 
 function setDarkMode() {
-  root.classList.add("dark");
-  localStorage.setItem("theme", "dark");
+  html.dataset.theme = "dark";
 }
 
 function setLightMode() {
-  root.classList.remove("dark");
-  localStorage.setItem("theme", "light");
+  html.dataset.theme = "light";
 }
 
-// Carregar tema salvo
-(function () {
-  const savedTheme = localStorage.getItem("theme");
+function changeTheme() {
+  const botao = document.querySelector(".botao-tema");
 
-  if (savedTheme === "dark") {
-    root.classList.add("dark");
+  if (html.dataset.theme === "light") {
+    html.dataset.theme = "dark";
+    botao.setAttribute("src", "./src/assets/light-mode-icon.svg");
+  } else {
+    html.dataset.theme = "light";
+    botao.setAttribute("src", "./src/assets/dark-mode-icon.svg");
   }
-})();
+}
 
 function formatPhoneField() {
   phoneElement = document.getElementById("telefone");
@@ -195,4 +223,61 @@ function showTypeAnimated() {
 
 window.addEventListener("DOMContentLoaded", () => {
   showTypeAnimated();
+});
+
+let cameraStream;
+
+async function iniciarCamera() {
+  const video = document.getElementById("camera");
+
+  try {
+    cameraStream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: "user" }
+    });
+
+    video.srcObject = cameraStream;
+    video.style.display = "block";
+  } catch (err) {
+    console.error("Erro ao acessar câmera:", err);
+  }
+}
+
+const btnCapturar = document.querySelector("#btn-capturar");
+
+btnCapturar.addEventListener("click", () => {
+  const video = document.querySelector("#camera");
+  const canvas = document.querySelector("#canvas");
+  const preview = document.querySelector("#preview");
+
+  preview.style.display = "none";
+
+  if (!cameraStream) {
+    iniciarCamera();
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    return;
+  }
+
+  const context = canvas.getContext("2d");
+
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+
+  context.drawImage(video, 0, 0);
+
+  const imageData = canvas.toDataURL("image/png");
+
+  preview.src = imageData;
+  preview.style.display = "block";
+  preview.dataset.image = imageData;
+
+  if (cameraStream) {
+    cameraStream.getTracks().forEach(track => track.stop());
+    cameraStream = null;
+  }
+
+  video.style.display = "none";
+
+  const erro = preview.parentNode.querySelector(".erro");
+  erro.innerHTML = "";
 });
